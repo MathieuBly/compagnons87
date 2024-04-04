@@ -1,0 +1,36 @@
+{
+    "app": {
+        "title": "Companions 87"
+    },
+    "message": {
+        "welcome": "Welcome to the Flutter Translate example app!"
+    },
+    "presentation": {
+        "welcome": "Welcome to the Companions of the Tour de France!",
+        "discover": "Explore the history and tradition of the Companions.",
+        "next": "Next"
+    },
+    "question": {
+        "questions": [
+            {
+                "text": "Première ville Toulouse ! Je suis Abel, j’ai 22 ans, j’ai commencé par découvrir le monde du bâtiment en apprenant le métier de charpentier. Mais c’est en tant que couvreur que je me suis engagé sur le Tour de France.",
+                "type": "text",
+                "requiresAnswer": false
+            },
+            {
+                "text": "Question 1 : Mais qu'est-ce que le Tour de France ?",
+                "choiceAnswers": [
+                    "Une compétition cycliste",
+                    "Un monument historique",
+                    "Un voyage d'apprentissage",
+                    "Une amende"
+                ],
+                "correctAnswers": [
+                    "Un voyage d'apprentissage"
+                ],
+                "type": "multipleChoice",
+                "requiresAnswer": true
+            }
+        ]
+    }
+}
