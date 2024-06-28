@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../conf/false_dialog.dart';
 import '../conf/question.dart';
 import '../conf/select_answer_dialog.dart';
 import 'image_question_widget.dart';
-import '../conf/false_dialog.dart';
 
 class QuestionWidget extends StatefulWidget {
   final Question question;
@@ -48,7 +48,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 48, 76, 84),
+                      color: Color.fromARGB(255, 255, 255, 255),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -57,7 +57,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   ElevatedButton(
                     onPressed: _onNextPressed,
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, backgroundColor: const Color(0xFFEE7203),
+                      foregroundColor: Colors.white,
+                      backgroundColor: const Color(0xFFEE7203),
                     ),
                     child: const Text('Next'),
                   ),
@@ -102,17 +103,18 @@ class _QuestionWidgetState extends State<QuestionWidget> {
         widget.onAnswerSelected(selectedAnswers);
       },
     );
-
   }
 
   Widget _buildMultipleChoiceWidget() {
     return Column(
       children: widget.question.choiceAnswers!.map((choiceAnswer) {
         return CheckboxListTile(
+          activeColor: const Color(0xFFEE7203),
+          checkColor: Color.fromARGB(255, 255, 255, 255),
           title: Text(
             choiceAnswer,
             style: const TextStyle(
-              color: Color.fromARGB(255, 48, 76, 84),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           value: selectedAnswers.contains(choiceAnswer),
@@ -129,16 +131,6 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               }
             });
           },
-          // child:Container(
-          //   decoration: Checkbox(
-          //     border: Border.all(
-          //       color: selectedAnswers.contains(choiceAnswer)
-          //           ? const Color(0xFFEE7203)
-          //           : Colors.transparent,
-          //     ),
-          //     borderRadius: BorderRadius.circular(8.0),
-          //   ),
-          // )
         );
       }).toList(),
     );
@@ -148,7 +140,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     if (widget.isAnswerChecked ||
         !widget.question.requiresAnswer ||
         (widget.question.type == 'text')) {
-          selectedAnswers = [];
+      selectedAnswers = [];
       print('tochenext');
       widget.onNextPressed();
     } else {

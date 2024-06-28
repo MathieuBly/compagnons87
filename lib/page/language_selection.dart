@@ -14,7 +14,8 @@ class LanguageSelection extends StatelessWidget {
         color: const Color(0xFF327E89), // Couleur de fond du conteneur
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0), // Ajout du padding à l'intérieur du conteneur
+            padding: const EdgeInsets.all(
+                16.0), // Ajout du padding à l'intérieur du conteneur
             child: Container(
               decoration: BoxDecoration(
                 color: const Color(0xFF327E89), // Couleur de fond du contenu
@@ -24,20 +25,30 @@ class LanguageSelection extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    const SizedBox(height: 20),
                     Image.asset(
                       'assets/img/logo.png',
                       width: 100.0,
                       height: 100.0,
                     ),
-                    const SizedBox(height: 10), // Utilisation de SizedBox sans const pour la flexibilité
-                    const Text(
-                      'Choisissez votre langue et votre axe narratif',
-                      style: TextStyle(
-                        color: Colors.black, // Utilisation de la couleur noire pour le texte
-                        fontSize: 22.0,
+                    const SizedBox(
+                        height:
+                            20), // Utilisation de SizedBox sans const pour la flexibilité
+                    const Center(
+                      child: Text(
+                        'Choisissez votre langue et votre axe narratif',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0,
+                              0), // Utilisation de la couleur noire pour le texte
+                          fontSize: 22.0,
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 100), // Utilisation de SizedBox sans const pour la flexibilité
+
+                    const SizedBox(
+                        height:
+                            100), // Utilisation de SizedBox sans const pour la flexibilité
                     Column(
                       children: [
                         GridView.count(
@@ -52,11 +63,14 @@ class LanguageSelection extends StatelessWidget {
                             EnglishgrilLanguageButton(),
                           ],
                         ),
-                        const SizedBox(height: 16), // Utilisation de SizedBox sans const pour la flexibilité
+                        const SizedBox(
+                            height:
+                                16), // Utilisation de SizedBox sans const pour la flexibilité
                         const Text(
                           '',
                           style: TextStyle(
-                            color: Colors.white, // Utilisation de la couleur blanche pour le texte
+                            color: Colors
+                                .white, // Utilisation de la couleur blanche pour le texte
                             fontSize: 16.0,
                           ),
                         ),

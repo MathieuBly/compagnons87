@@ -7,7 +7,7 @@
     },
     "presentation": {
         "welcome": "Welcome to the Companions of the Tour de France!",
-        "discover": "Explore the history and tradition of the Companions.",
+        "discover": "Come and discover how to become a Companion of the Tour of France! Answer these 20 questions and find out your own companion name! Are you more of a Noble Heart Dauphinois or a Frank Orléanais? Let's play!",
         "next": "Next"
     },
     "question": {
@@ -100,7 +100,7 @@
                 "requiresAnswer": true
             },
             {
-                "text": "Good answer! Did you know that copper changes color when oxidized? That's why the station roof is green!",
+                "text": "Good answer! Did you know that copper changes color when it oxidizes? This is why the roof of the station is green!",
                 "type": "text",
                 "requiresAnswer": false
             },
@@ -167,7 +167,7 @@
                 "requiresAnswer": true
             },
             {
-                "text": "Good answer! The flying buttress is used to support the walls from the outside. You can see them near the museum as you walk in the park and admire the cathedral.",
+                "text": "Correct answer! The flying buttress is used to support the walls from the outside. You can observe them near the museum by walking in the park and contemplating the cathedral.",
                 "type": "text",
                 "requiresAnswer": false
             },

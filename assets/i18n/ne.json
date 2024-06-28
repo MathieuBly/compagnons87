@@ -13,6 +13,11 @@
     "question": {
         "questions": [
             {
+                "text": "I am Noémie, I am 24 years old. I started discovering the world of construction by learning the trade of cabinetmaking after obtaining my general baccalaureate. I committed to the Tour de France after completing a CAP in cabinetmaking.",
+                "type": "text",
+                "requiresAnswer": false
+            },
+            {
                 "text": "Question 1: But what is the Tour de France?",
                 "choiceAnswers": [
                     "A cycling competition",
@@ -32,7 +37,7 @@
                 "requiresAnswer": false
             },
             {
-                "text": "Question 2: The first city to welcome me was Annecy. I am with about thirty other young people, various trades are represented: carpenter, joiner, cabinetmaker, plumber, baker and the best: joiner! Among these photos, which model was made by a joiner?",
+                "text": "Question 2 : The first city to welcome me was Annecy. I am with about thirty other young people, various trades are represented: carpenter, joiner, cabinetmaker, plumber, baker and the best: joiner! Among these photos, which model was made by a joiner?",
                 "choiceAnswers": [
                     "assets/img/img20.png",
                     "assets/img/img18.png",
@@ -40,7 +45,7 @@
                     "assets/img/img19.png"
                 ],
                 "correctImageAnswers": [
-                    "assets/img/img21.png"
+                    "assets/img/img19.png"
                 ],
                 "type": "image",
                 "requiresAnswer": true

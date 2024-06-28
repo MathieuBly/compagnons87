@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:convert';
+
+//import 'package:confetti/confetti.dart';
 
 import 'interest_page.dart';
 import 'thanks_page.dart';
@@ -12,6 +15,9 @@ class CompanionGenerator {
     final jsonData = json.decode(data);
 
     final Map<String, dynamic> regionsData = jsonData['companion_names'];
+
+    print('Selected Region: $selectedRegion');
+    print('Selected Quality: $selectedQuality');
 
     if (regionsData.containsKey(selectedRegion)) {
       final Map<String, dynamic> companionsData = regionsData[selectedRegion];
@@ -43,13 +49,13 @@ class CongratulationPage extends StatefulWidget {
 class _CongratulationPageState extends State<CongratulationPage>
     with SingleTickerProviderStateMixin {
   String selectedRegion = 'Alsace';
-  String selectedQuality = 'Prise d’initiative';
+  String selectedQuality = 'Prise d\'initiative';
   String companionName = '';
-  String pageTitle = 'Félicitations pour avoir terminé le quiz ! Choisissez maintenant votre région préférée et une de vos qualités.';
+  String pageTitle =
+      'Félicitations pour avoir terminé le quiz ! Choisissez maintenant votre région préférée et une de vos qualités.';
   bool isFinished = false;
 
   List<String> regions = [
-    "-",
     "Alsace",
     "Aquitaine",
     "Auvergne",
@@ -74,28 +80,27 @@ class _CongratulationPageState extends State<CongratulationPage>
   ];
 
   List<String> qualities = [
-    "-",
-    "Prise d’initiative",
+    "Prise d'initiative",
     "Loyauté",
     "Sympathie",
     "Bienveillance",
     "Empathie",
     "Honnêteté",
     "Altruisme",
-    "Esprit d’équipe",
+    "Esprit d'équipe",
     "Diplomatie",
     "Enthousiasme",
     "Rigueur",
     "Sincérité",
     "Curiosité",
-    "Ouverture d’esprit",
+    "Ouverture d'esprit",
     "Adaptabilité",
     "Créativité",
     "Intégrité",
     "Autonomie",
     "Ambition",
     "Patience",
-    "Capacité d’écoute"
+    "Capacité d'écoute"
   ];
 
   void generateCompanionName() async {
@@ -122,58 +127,85 @@ class _CongratulationPageState extends State<CongratulationPage>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  isFinished ? 'Voici votre nom de compagnon' : 'Félicitations ! Vous avez un nouveau compagnon',
-                  style: TextStyle(fontSize: 20),
+                Center(
+                  child: Text(
+                    isFinished
+                        ? 'Voici votre nom de compagnon'
+                        : 'Félicitations ! Choisissez votre région et une de vos qualités.',
+                    textAlign: TextAlign.center, // Centrer le texte horizontalement
+                    style: const TextStyle(
+                      color: Colors.white, // Changer la couleur en blanc
+                      fontSize: 20,
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
                 if (isFinished)
-                  Text(
-                    companionName,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  Center(
+                    child: Text(
+                      companionName,
+                      textAlign: TextAlign.center, // Centrer le texte horizontalement
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white, // Changer la couleur en blanc
+                      ),
+                    ),
                   ),
-                if (!isFinished) Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    DropdownButton<String>(
-                      value: selectedRegion,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          selectedRegion = newValue!;
-                          generateCompanionName();
-                        });
-                      },
-                      items: regions.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4, // Largeur basée sur la largeur de l'écran
-                            child: Text(value),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                    SizedBox(height: 20),
-                    DropdownButton<String>(
-                      value: selectedQuality,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          selectedQuality = newValue!;
-                          generateCompanionName();
-                        });
-                      },
-                      items: qualities.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4, // Largeur basée sur la largeur de l'écran
-                            child: Text(value),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
+                if (!isFinished)
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      DropdownButton<String>(
+                        value: selectedRegion,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedRegion = newValue!;
+                            generateCompanionName();
+                          });
+                        },
+                        items: regions
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(255, 0, 0, 0), // Changer la couleur en blanc
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                      DropdownButton<String>(
+                        value: selectedQuality,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedQuality = newValue!;
+                            generateCompanionName();
+                          });
+                        },
+                        items: qualities
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(255, 0, 0, 0), // Changer la couleur en blanc
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
@@ -191,7 +223,9 @@ class _CongratulationPageState extends State<CongratulationPage>
                     backgroundColor: const Color(0xFFEE7203),
                   ),
                   child: Text(
-                    isFinished ? 'Intéressé(e) par une newsletter ou une formation?' : 'Valider',
+                    isFinished
+                        ? 'Intéressé(e) par une newsletter ou une formation?'
+                        : 'Valider',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -239,4 +273,3 @@ void showConfirmationDialog(BuildContext context) {
     },
   );
 }
-

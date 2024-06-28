@@ -54,8 +54,10 @@ void saveEmail(String email, String selectedInterest) {
     
     FirebaseFirestore.instance.collection(collectionName).doc(email).set({
       'email': email,
+      
     });
   } else {
     print('Email and interest cannot be empty.');
   }
 }
+
